@@ -42,7 +42,7 @@ implementation 'pl.szczurowsky:RatOverNats:1.0.0'
 ```
 
 ## Usage
-More advance examples in docs
+More complex examples in docs
 
 ### Connect
 
