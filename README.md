@@ -17,28 +17,28 @@ Helpful links:
 - [Docs (Beta)](https://docs.szczurowsky.pl/v/ratovernats-wiki/)
 - [Javadocs](https://szczurowsky.github.io/RatOverNATS/)
 
-## MineCodes Repository (Maven or Gradle) ️
+## JitPack Repository (Maven or Gradle) ️
 ```xml
 <repository>
-  <id>minecodes-repository</id>
-  <url>https://repository.minecodes.pl/releases</url>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
 </repository>
 ```
 ```groovy
-maven { url "https://repository.minecodes.pl/releases" }
+maven { url "https://jitpack.io" }
 ```
 
 ### Dependencies (Maven or Gradle)
 Framework Core
 ```xml
 <dependency>
-    <groupId>pl.szczurowsky</groupId>
-    <artifactId>rat-over-nats</artifactId>
+    <groupId>com.github.Szczurowsky</groupId>
+    <artifactId>RatOverNATS</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 ```groovy
-implementation 'pl.szczurowsky:RatOverNats:1.0.0'
+implementation 'com.github.Szczurowsky:RatOverNats:1.0.0'
 ```
 
 ## Usage

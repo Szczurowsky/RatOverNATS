@@ -60,11 +60,11 @@
 
     <distributionManagement>
         <repository>
-            <id>minecodes-repository</id>
+            <id>github</id>
             <url>https://repository.minecodes.pl/releases</url>
         </repository>
         <snapshotRepository>
-            <id>minecodes-repository</id>
+            <id>github</id>
             <url>https://repository.minecodes.pl/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
