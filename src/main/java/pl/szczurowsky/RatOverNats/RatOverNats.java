@@ -8,6 +8,7 @@ import pl.szczurowsky.RatOverNats.packet.Packet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -15,6 +16,12 @@ public final class RatOverNats {
 
     private final Connection connection;
 
+    /**
+     * Constructs RatOverNats instance with given NATS server URI and options.
+     * @param uri nats server uri
+     * @param options nats options
+     * @param ratMessageHandlers rat message handlers
+     */
     public RatOverNats(List<String> uri, Options options, List<RatMessageHandler<?>> ratMessageHandlers) {
         try {
             this.connection = connect(uri, options);
@@ -25,14 +32,33 @@ public final class RatOverNats {
     }
 
     /**
-     * Publish message to NATS.
-     * @param chanelName channel name
-     * @param packet packet to publish
+     * Publish a request packet to NATS.
+     * @param channelName channel name
+     * @param packet packet to be published
+     * @return CompletableFuture<Packet> future containing packet received from NATS
      */
-    public void publish(String chanelName, Packet<?> packet) {
+    public CompletableFuture<Message> publishRequest(String channelName, Packet<?> packet) {
         try {
             Message message = NatsMessage.builder()
-                    .subject(chanelName)
+                    .subject(channelName)
+                    .headers(new Headers().add("packetId", String.valueOf(packet.getPacketId())))
+                    .data(packet.serialize())
+                    .build();
+            return connection.request(message);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Publish message to NATS.
+     * @param channelName channel name
+     * @param packet packet to publish
+     */
+    public void publish(String channelName, Packet<?> packet) {
+        try {
+            Message message = NatsMessage.builder()
+                    .subject(channelName)
                     .headers(new Headers().add("packetId", String.valueOf(packet.getPacketId())))
                     .data(packet.serialize())
                     .build();
