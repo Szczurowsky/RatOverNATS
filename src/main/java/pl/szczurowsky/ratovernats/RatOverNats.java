@@ -1,11 +1,11 @@
-package pl.szczurowsky.RatOverNats;
+package pl.szczurowsky.ratovernats;
 
 import io.nats.client.*;
 import io.nats.client.impl.Headers;
 import io.nats.client.impl.NatsMessage;
-import pl.szczurowsky.RatOverNats.handler.RatMessageHandler;
-import pl.szczurowsky.RatOverNats.packet.Packet;
-import pl.szczurowsky.RatOverNats.packet.ResponseMessage;
+import pl.szczurowsky.ratovernats.handler.RatMessageHandler;
+import pl.szczurowsky.ratovernats.packet.Packet;
+import pl.szczurowsky.ratovernats.packet.ResponseMessage;
 
 import java.io.IOException;
 import java.util.List;

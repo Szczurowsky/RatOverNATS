@@ -1,7 +1,7 @@
-package pl.szczurowsky.RatOverNats.packet;
+package pl.szczurowsky.ratovernats.packet;
 
 import io.nats.client.Message;
-import pl.szczurowsky.RatOverNats.RatOverNats;
+import pl.szczurowsky.ratovernats.RatOverNats;
 
 import java.util.concurrent.CompletableFuture;
 

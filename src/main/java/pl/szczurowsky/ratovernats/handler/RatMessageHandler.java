@@ -1,8 +1,8 @@
-package pl.szczurowsky.RatOverNats.handler;
+package pl.szczurowsky.ratovernats.handler;
 
 import io.nats.client.Message;
 import io.nats.client.MessageHandler;
-import pl.szczurowsky.RatOverNats.packet.Packet;
+import pl.szczurowsky.ratovernats.packet.Packet;
 
 import java.io.Serializable;
 import java.util.concurrent.CountDownLatch;

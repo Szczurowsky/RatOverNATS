@@ -1,4 +1,4 @@
-package pl.szczurowsky.RatOverNats.packet;
+package pl.szczurowsky.ratovernats.packet;
 
 import java.io.*;
 

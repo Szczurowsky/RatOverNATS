@@ -1,4 +1,4 @@
-package pl.szczurowsky.RatOverNats.packet;
+package pl.szczurowsky.ratovernats.packet;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
