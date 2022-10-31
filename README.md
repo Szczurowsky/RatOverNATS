@@ -34,11 +34,11 @@ Framework Core
 <dependency>
     <groupId>com.github.Szczurowsky</groupId>
     <artifactId>RatOverNATS</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 ```groovy
-implementation 'com.github.Szczurowsky:RatOverNats:1.0.0'
+implementation 'com.github.Szczurowsky:RatOverNats:1.1.0'
 ```
 
 ## Usage

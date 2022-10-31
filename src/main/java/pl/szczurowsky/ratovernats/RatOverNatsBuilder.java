@@ -1,7 +1,7 @@
-package pl.szczurowsky.RatOverNats;
+package pl.szczurowsky.ratovernats;
 
 import io.nats.client.Options;
-import pl.szczurowsky.RatOverNats.handler.RatMessageHandler;
+import pl.szczurowsky.ratovernats.handler.RatMessageHandler;
 
 import java.util.*;
 import java.util.stream.Collectors;
