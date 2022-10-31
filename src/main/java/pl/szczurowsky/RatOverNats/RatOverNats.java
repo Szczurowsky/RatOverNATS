@@ -5,6 +5,7 @@ import io.nats.client.impl.Headers;
 import io.nats.client.impl.NatsMessage;
 import pl.szczurowsky.RatOverNats.handler.RatMessageHandler;
 import pl.szczurowsky.RatOverNats.packet.Packet;
+import pl.szczurowsky.RatOverNats.packet.ResponseMessage;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,6 +46,25 @@ public final class RatOverNats {
                     .data(packet.serialize())
                     .build();
             return connection.request(message);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Publish a response packet to NATS.
+     * @param channelName channel name
+     * @param packet packet to be published
+     * @return ResponseMessage response message containing packet received from NATS and RatOverNats instance
+     */
+    public ResponseMessage publishEncapsulateRequest(String channelName, Packet<?> packet) {
+        try {
+            Message message = NatsMessage.builder()
+                    .subject(channelName)
+                    .headers(new Headers().add("packetId", String.valueOf(packet.getPacketId())))
+                    .data(packet.serialize())
+                    .build();
+            return new ResponseMessage(this, connection.request(message));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
