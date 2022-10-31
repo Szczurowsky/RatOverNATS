@@ -89,8 +89,9 @@ public abstract class RatMessageHandler<T extends Serializable> implements Messa
      */
     @Override
     public void onMessage(Message message) throws InterruptedException {
-        if (!message.getHeaders().containsKey("packetId"))
-            return;
+        if (message == null) return;
+        if (message.getHeaders().isEmpty()) return;
+        if (!message.getHeaders().containsKey("packetId")) return;
         int receivedPacketId = Integer.parseInt(message.getHeaders().get("packetId").get(0));
         if (receivedPacketId != this.packetId) {
             return;
